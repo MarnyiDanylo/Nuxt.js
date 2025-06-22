@@ -94,7 +94,7 @@ const columns: TableColumn<Post>[] = [
         h(
             'a',
             {
-              href: `/admin/blog/posts/${row.original.id}/edit`,
+              href: `/blog/posts/${row.original.id}`,
               class: 'text-blue-500 hover:underline'
             },
             row.original.title
