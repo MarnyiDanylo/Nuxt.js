@@ -1,10 +1,15 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
-  modules: [
-      '@nuxt/ui',
-      '@vueuse/nuxt'
-  ],
+    compatibilityDate: '2024-11-01',
+    devtools: { enabled: true },
+    modules: [
+        '@nuxt/ui',
+        '@vueuse/nuxt'
+    ],
     css: ['@/assets/css/tailwind.css'],
+    runtimeConfig: {
+        public: {
+            apiBase: 'http://localhost/api'
+        }
+    }
 })
