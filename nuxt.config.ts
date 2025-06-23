@@ -11,5 +11,15 @@ export default defineNuxtConfig({
         public: {
             apiBase: 'http://localhost/api'
         }
+    },
+    vite: {
+        optimizeDeps: {
+            include: ['zod']
+        },
+        server: {
+            fs: {
+                strict: false
+            }
+        }
     }
 })

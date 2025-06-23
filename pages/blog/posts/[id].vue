@@ -39,22 +39,22 @@
                   prose-blockquote:border-l-primary-500 prose-blockquote:text-gray-600
                   prose-ul:list-disc prose-ol:list-decimal
                   prose-img:rounded-lg prose-img:shadow-md">
-          <div v-html="post.data.content_html"></div>
+          <div v-html="post.data.content_raw"></div>
         </div>
       </div>
 
       <div v-else class="text-center py-12">
         <UIcon name="i-heroicons-exclamation-circle" class="w-12 h-12 mx-auto text-red-500 mb-4" />
-        <p class="text-xl font-medium text-gray-800">Пост не знайдено</p>
-        <p class="text-gray-600 mt-2">На жаль, ми не змогли знайти запрошений пост</p>
+        <p class="text-xl font-medium text-gray-800">Статтю не знайдено</p>
+        <p class="text-gray-600 mt-2">На жаль, ми не змогли знайти запрошену статтю</p>
       </div>
     </template>
 
     <UButton
-        to="/BlogPostsUi"
+        to="/blog/posts"
         class="mt-8"
         icon="i-heroicons-arrow-left"
-        color="gray"
+        color="neutral"
         variant="ghost"
     >
       Назад до списку
@@ -89,13 +89,13 @@ const fetchPost = async () => {
     if (error.value) {
       throw createError({
         statusCode: 404,
-        message: 'Пост не знайдено'
+        message: 'Статтю не знайдено'
       })
     }
 
     post.value = data.value
   } catch (error) {
-    console.error('Помилка при завантаженні посту:', error)
+    console.error('Помилка при завантаженні статті:', error)
   } finally {
     loading.value = false
   }
